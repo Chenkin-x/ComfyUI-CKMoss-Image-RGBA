@@ -1,0 +1,112 @@
+{
+  "1": {
+    "class_type": "UNETLoader",
+    "inputs": {
+      "unet_name": "moss_sft.safetensors",
+      "weight_dtype": "default"
+    }
+  },
+  "2": {
+    "class_type": "CLIPLoader",
+    "inputs": {
+      "clip_name": "qwen35_9b.safetensors",
+      "type": "moss_image",
+      "device": "default"
+    }
+  },
+  "3": {
+    "class_type": "MossRGBAVAELoader",
+    "inputs": {
+      "vae_name": "moss_rgba_vae.safetensors"
+    }
+  },
+  "4": {
+    "class_type": "CLIPTextEncode",
+    "inputs": {
+      "clip": [
+        "2",
+        0
+      ],
+      "text": "A full-body anime illustration of an adult female botanist with mint-green bob hair, wearing a cream safari jacket, brown trousers and boots, holding a small potted plant. Refined line art, soft mint and peach colors, isolated, transparent background."
+    }
+  },
+  "5": {
+    "class_type": "CLIPTextEncode",
+    "inputs": {
+      "clip": [
+        "2",
+        0
+      ],
+      "text": ""
+    }
+  },
+  "6": {
+    "class_type": "EmptyFlux2LatentImage",
+    "inputs": {
+      "width": 512,
+      "height": 640,
+      "batch_size": 1
+    }
+  },
+  "7": {
+    "class_type": "KSampler",
+    "inputs": {
+      "model": [
+        "10",
+        0
+      ],
+      "seed": 47,
+      "steps": 30,
+      "cfg": 4.0,
+      "sampler_name": "euler",
+      "scheduler": "normal",
+      "positive": [
+        "4",
+        0
+      ],
+      "negative": [
+        "5",
+        0
+      ],
+      "latent_image": [
+        "6",
+        0
+      ],
+      "denoise": 1.0
+    }
+  },
+  "8": {
+    "class_type": "VAEDecode",
+    "inputs": {
+      "samples": [
+        "7",
+        0
+      ],
+      "vae": [
+        "3",
+        0
+      ]
+    }
+  },
+  "9": {
+    "class_type": "SaveImage",
+    "inputs": {
+      "images": [
+        "8",
+        0
+      ],
+      "filename_prefix": "MOSS-RGBA/with-lora"
+    }
+  },
+  "10": {
+    "class_type": "LoraLoaderModelOnly",
+    "inputs": {
+      "model": [
+        "1",
+        0
+      ],
+      "lora_name": "moss_rgba_dit_lora.safetensors",
+      "strength_model": 1.0
+    }
+  }
+}

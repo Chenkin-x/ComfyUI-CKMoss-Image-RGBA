@@ -1,0 +1,17 @@
+MOSS RGBA
+
+This project adapts the following upstream work:
+
+MOSS-Image — OpenMOSS Team
+https://github.com/OpenMOSS/MOSS-Image
+Base model: https://huggingface.co/OpenMOSS-Team/MOSS-Image-SFT
+Upstream model and code license: Apache License 2.0.
+
+FLUX.2 Autoencoder — Black Forest Labs
+https://github.com/black-forest-labs/flux2#flux2-autoencoder
+The FLUX.2 autoencoder is separately released under Apache License 2.0.
+The RGBA VAE changes its image input/output to four channels and merges the learned adapter.
+
+This project's code and adapted weights are distributed under GPLv3.
+Upstream attribution and license terms are retained.
+See LICENSE and LICENSE-APACHE-2.0.
