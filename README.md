@@ -54,4 +54,4 @@
 
 基于 [MOSS-Image](https://github.com/OpenMOSS/MOSS-Image) 和 [FLUX.2 VAE](https://github.com/black-forest-labs/flux2#flux2-autoencoder)。感谢 [niangao2331](https://github.com/niangao2331) 提供部分图像数据。
 
-代码采用 GPLv3，第三方来源与许可见 [NOTICE](NOTICE)。
+本仓库代码采用 [GPLv3](LICENSE)。上游 [MOSS-Image](https://huggingface.co/OpenMOSS-Team/MOSS-Image-SFT/blob/main/LICENSE) 和 [FLUX.2 VAE](https://github.com/black-forest-labs/flux2#flux2-autoencoder) 均采用 Apache 2.0，许可说明见各自链接。
